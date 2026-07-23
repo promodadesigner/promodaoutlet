@@ -34,7 +34,7 @@ export default function Header() {
           <img
             src="/logo_promoda_outlet_branco_trans.png"
             alt="Promoda Outlet"
-            className={`h-12 lg:h-16 w-auto transition-all duration-300 ${
+            className={`h-16 lg:h-20 w-auto transition-all duration-300 ${
               scrolled ? "brightness-0" : ""
             }`}
           />

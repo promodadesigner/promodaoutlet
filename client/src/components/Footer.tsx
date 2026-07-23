@@ -35,7 +35,7 @@ export default function Footer() {
               <img
                 src="/logo_promoda_outlet_branco_trans.png"
                 alt="Promoda Outlet"
-                className="h-12 lg:h-14 w-auto"
+                className="h-16 lg:h-18 w-auto"
               />
             </a>
             <p className="text-sm text-white/70 mb-6 max-w-md leading-relaxed">

@@ -4,12 +4,12 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import PercalPage from "./pages/PercalPage";
+import HomePage from "./pages/HomePage";
 
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={PercalPage} />
+      <Route path={"/"} component={HomePage} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -21,7 +21,7 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider
-        defaultTheme="dark"
+        defaultTheme="light"
       >
         <TooltipProvider>
           <Toaster />

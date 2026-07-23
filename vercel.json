@@ -1,26 +1,26 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "dist/index.js",
-      "use": "@vercel/node"
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist/public",
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": "server/**",
+      "maxDuration": 30
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "dist/index.js"
+      "source": "/api/trpc/(.*)",
+      "destination": "/api/index.ts"
     },
     {
-      "src": "/manus-storage/(.*)",
-      "dest": "dist/index.js"
+      "source": "/api/oauth/(.*)",
+      "destination": "/api/index.ts"
     },
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "dist/index.js"
+      "source": "/manus-storage/(.*)",
+      "destination": "/api/index.ts"
     }
   ]
 }

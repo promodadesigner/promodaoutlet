@@ -24,6 +24,17 @@ const fabricCategories = [
   },
 ];
 
+const fabricPatterns = [
+  { codigo: "PER-001", name: "Percal Floral", color: "bg-pink-100" },
+  { codigo: "PER-002", name: "Percal Liso", color: "bg-blue-100" },
+  { codigo: "PER-003", name: "Percal Listrado", color: "bg-green-100" },
+  { codigo: "TRI-001", name: "Tricoline Floral", color: "bg-yellow-100" },
+  { codigo: "TRI-002", name: "Tricoline Liso", color: "bg-purple-100" },
+  { codigo: "TRI-003", name: "Tricoline Xadrez", color: "bg-red-100" },
+  { codigo: "SAR-001", name: "Sarja Listrada", color: "bg-indigo-100" },
+  { codigo: "SAR-002", name: "Sarja Lisa", color: "bg-teal-100" },
+];
+
 export default function FabricShowcase() {
   return (
     <section id="produtos" className="py-20 lg:py-28 bg-white">
@@ -42,7 +53,7 @@ export default function FabricShowcase() {
           </p>
         </div>
 
-        {/* Fabric Cards */}
+        {/* Fabric Categories */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {fabricCategories.map((fabric, index) => (
             <div
@@ -52,18 +63,13 @@ export default function FabricShowcase() {
                 background: `linear-gradient(135deg, ${index === 0 ? '#0B1D3A' : index === 1 ? '#1A3055' : '#2A4570'}, ${index === 0 ? '#1A3055' : index === 1 ? '#2A4570' : '#3A5580'})`,
               }}
             >
-              {/* Decorative Element */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-              
-              {/* Content */}
               <div className="relative z-10">
                 <div className={`w-12 h-1 ${fabric.accent} rounded-full mb-6`}></div>
                 <h3 className="text-2xl lg:text-3xl font-display font-light mb-3">
                   {fabric.name}
                 </h3>
                 <p className="text-white/70 mb-6">{fabric.description}</p>
-                
-                {/* Features */}
                 <ul className="space-y-3 mb-8">
                   {fabric.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-3 text-sm text-white/80">
@@ -72,8 +78,6 @@ export default function FabricShowcase() {
                     </li>
                   ))}
                 </ul>
-
-                {/* CTA */}
                 <a
                   href="/#contato"
                   className="inline-flex items-center gap-2 text-sm font-medium text-white border-b border-white/30 pb-1 hover:border-white/60 transition-colors duration-300"
@@ -84,6 +88,28 @@ export default function FabricShowcase() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Fabric Patterns Grid */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-display font-light text-[#0B1D3A] mb-8 text-center">
+            Nossas Estampas
+          </h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {fabricPatterns.map((pattern) => (
+              <div key={pattern.codigo} className="group flex flex-col items-center">
+                <div className={`relative w-full aspect-square overflow-hidden rounded-lg ${pattern.color} flex items-center justify-center`}>
+                  <div className="absolute top-0 left-0 bg-[#0B1D3A] text-white text-xs px-2 py-1 z-10 rounded-br">
+                    COD: {pattern.codigo}
+                  </div>
+                  <div className="text-4xl opacity-20">🧵</div>
+                </div>
+                <span className="mt-3 text-sm font-medium text-[#0B1D3A]">
+                  {pattern.name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Features Grid */}
